@@ -9,17 +9,9 @@ import os
 import base64
 
 
-app = Flask(__name__)
-app.secret_key = '6516443-352379-97629-87263452982'
-
-'''
-TODO
-1. refactor code
-2. handle possible failure (404, 401, 403, 429, etc)
-
-'''
-
 load_dotenv()
+app = Flask(__name__)
+app.secret_key = os.getenv("APP_SECRET_ID")
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 REDIRECT_URL = 'http://127.0.0.1:5000/callback' #'http://localhost:5000/callback'
